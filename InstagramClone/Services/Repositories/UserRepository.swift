@@ -3,18 +3,17 @@ protocol UserRepositoryProtocol {
 }
 
 final class UserRepository: UserRepositoryProtocol {
-    private let remoteDataSource: UserDataSource
+    private let remoteDataSource: RemoteUserDataSource
     private let localDataSource: LocalUserDataSource
     
-    init(remoteDataSource: UserDataSource, localDataSource: LocalUserDataSource) {
+    init(remoteDataSource: RemoteUserDataSource, localDataSource: LocalUserDataSource) {
         self.remoteDataSource = remoteDataSource
         self.localDataSource = localDataSource
     }
     
     func getUsers(page: Int) async throws -> [User] {
-        do {
-            return try await localDataSource.getUsers(page: page)
-        } catch {
+        let cachedUsers = localDataSource.getUsers(page: page)
+        if cachedUsers.isEmpty {
             do {
                 let users = try await remoteDataSource.getUsers(page: page)
                 localDataSource.saveUsers(users, forPage: page)
@@ -22,6 +21,8 @@ final class UserRepository: UserRepositoryProtocol {
             } catch {
                 throw error
             }
+        } else {
+            return cachedUsers
         }
     }
 }

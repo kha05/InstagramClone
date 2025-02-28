@@ -3,10 +3,10 @@ protocol StoryContentRepositoryProtocol {
 }
 
 final class StoryContentRepository: StoryContentRepositoryProtocol {
-    private let remoteDataSource: StoryContentDataSource
+    private let remoteDataSource: RemoteStoryContentDataSource
     private let localDataSource: LocalStoryContentDataSource
     
-    init(remoteDataSource: StoryContentDataSource, localDataSource: LocalStoryContentDataSource) {
+    init(remoteDataSource: RemoteStoryContentDataSource, localDataSource: LocalStoryContentDataSource) {
         self.remoteDataSource = remoteDataSource
         self.localDataSource = localDataSource
     }

@@ -1,7 +1,5 @@
 import Resolver
 
-import Resolver
-
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
         // MARK: - Infrastructure
@@ -10,7 +8,6 @@ extension Resolver: ResolverRegistering {
             .scope(.application)
 
         // MARK: - Data Sources
-        // Local Data Sources
         register { LocalUserDataSource() }
             .scope(.application)
 
@@ -20,7 +17,6 @@ extension Resolver: ResolverRegistering {
         register { LocalStoryStateDataSource() }
             .scope(.application)
 
-        // Remote Data Sources
         register {
             RemoteUserDataSource()
         }.scope(.application)

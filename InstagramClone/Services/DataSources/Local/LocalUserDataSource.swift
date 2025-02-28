@@ -1,7 +1,7 @@
 final class LocalUserDataSource: UserDataSource {
     private var cachedUsers: [[User]] = []
     
-    func getUsers(page: Int) async throws -> [User] {
+    func getUsers(page: Int) -> [User] {
         guard page < cachedUsers.count else {
             return []
         }
