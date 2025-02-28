@@ -45,11 +45,6 @@
 			path = InstagramCloneTests;
 			sourceTree = "<group>";
 		};
-		EAB6E2122D71F6B400A981C9 /* InstagramCloneUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = InstagramCloneUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +79,6 @@
 			children = (
 				EAB6E1F62D71F6B100A981C9 /* InstagramClone */,
 				EAB6E2082D71F6B300A981C9 /* InstagramCloneTests */,
-				EAB6E2122D71F6B400A981C9 /* InstagramCloneUITests */,
 				EAB6E1F52D71F6B100A981C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -161,9 +155,6 @@
 			);
 			dependencies = (
 				EAB6E2112D71F6B300A981C9 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				EAB6E2122D71F6B400A981C9 /* InstagramCloneUITests */,
 			);
 			name = InstagramCloneUITests;
 			packageProductDependencies = (
